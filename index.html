@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body class="h-screen">
+    <!-- <h1 class="text-center font-bold">My Portfolio</h1> -->
+    <div class="flex flex-col md:flex-row gap-10 h-full mx-auto rounded-lg md:p-10 shadow-md bg-slate-800">
+        <div class="w-full md:flex-[1] rounded-md side shadow-md hidden md:flex">
+            <div class="">
+                <h1 class="text-center py-10 text-4xl font-bold">My Portfolio</h1>
+                <img src="Profile.jpg" alt="Photo" class="w-1/2 h-auto mx-auto rounded-full border-1 shadow-lg">
+                <h2 class="text-center pt-5 text-2xl font-bold">SURYA PRAKASH</h2>
+                <h3 class="text-md text-gray-600 text-center p-4">Electrical Engineering Student | Web Developer | IoT
+                    Developer | High Voltage Engineer.</h3>
+
+                <p class="px-4 text-center max-w-md text-gray-600">
+                    Passionate about technology, AI, and building impactful web solutions.
+                    Currently exploring control systems and modern frontend frameworks.
+                </p>
+
+                <div class="flex justify-center mt-8">
+                    <button class="px-5 py-2 bg-amber-600 rounded-lg shadow hover:bg-amber-700 transition"><a
+                            href="">Connect To
+                            Me</a></button>
+                </div>
+                <div id="socials" class="flex justify-center gap-8 my-8 text-gray-600"></div>
+            </div>
+        </div>
+
+        <div class="w-full md:flex-[3] rounded-md main shadow-md ">
+            <!-- NAVBAR -->
+            <nav
+                class="fixed md:static top-0 left-0 w-full bg-white/0 bg-transparent backdrop-blur-sm shadow md:shadow-none z-50">
+                <div class="max-w-6xl mx-auto h-13 flex items-center justify-between px-8">
+                    <a href="#" class="text-xl font-bold"><img src="my logo new.png" alt="" class="max-w-20 md:max-w-25 md:pt-5"></a>
+
+                    <!-- Desktop Links -->
+                    <ul class="hidden md:flex space-x-10 text-gray-800 font-medium">
+                        <li><a href="#about" class="hover:text-blue-500">About</a></li>
+                        <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
+                        <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+                        <li><a href="#experience" class="hover:text-blue-500">Experience</a></li>
+                        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+                    </ul>
+
+                    <!-- Mobile button -->
+                    <button id="menu-btn" class="md:hidden text-gray-900 focus:outline-none">
+                        <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Mobile Overlay Menu -->
+            <div id="menu"
+                class="fixed inset-0 hidden bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center">
+                <ul class="space-y-8 text-2xl font-semibold text-white text-center transform scale-95 opacity-0 transition duration-300"
+                    id="menu-links">
+                    <li><a href="#about" class="hover:text-blue-400">My Profile</a></li>
+                    <li><a href="#about" class="hover:text-blue-400">About</a></li>
+                    <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+                    <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+                    <li><a href="#experience" class="hover:text-blue-400">Experience</a></li>
+                    <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+                </ul>
+                <div id="socialmobo" class="flex justify-center gap-8 my-8 text-red-600"></div>
+            </div>
+
+
+
+            
+
+            <section id="about" class="py-20 px-4 md:px-8">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center  gap-10">
+
+
+
+                    <!-- Right: About Content -->
+                    <div class="md:w-2/3 space-y-6 order-2 md:order-1">
+                        <!-- Heading -->
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-800">About Me</h2>
+
+                        <!-- Short Intro -->
+                        <p class="text-gray-700 text-lg md:text-xl">
+                            I am an Electrical Engineering student passionate about technology and innovation.
+                            I love solving real-world problems by blending engineering principles with modern web
+                            development.
+                        </p>
+
+                        <!-- Detailed Description -->
+                        <p class="text-gray-600 leading-relaxed">
+                            Over the years, I have worked on projects ranging from control systems simulations
+                            to responsive web applications. I enjoy learning new technologies and applying them
+                            creatively to make an impact. My goal is to combine my technical background with
+                            software development skills to build meaningful solutions.
+                        </p>
+                    </div>
+
+                    <!-- Left: Optional Image -->
+                    <div
+                        class="flex-shrink-0 md:w-1/3 order-1 md:order-2 items-center justify-center h-full perspective">
+                        <div class="transform transition-transform duration-300 hover:rotate-y-10 hover:-rotate-x-20">
+                            <img src="Profile.jpg" alt="Profile" class="w-90 h-90  mx-auto rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+                <hr class="mt-8">
+                <!-- Optional Highlights -->
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-8 pt-8">
+                    <div class="p-4 h-60 hover:animate-bounce bg-gray-100 rounded-xl shadow text-center">💻 Web
+                        Development</div>
+                    <div class="p-4 h-60 hover:animate-bounce bg-gray-100 rounded-xl shadow text-center">⚡ IoT Developer
+                    </div>
+                    <div class="p-4 h-60 hover:animate-bounce bg-gray-100 rounded-xl shadow text-center">📊 MS-Office
+                    </div>
+                    <div class="p-4 h-60 hover:animate-bounce bg-gray-100 rounded-xl shadow text-center">🔌High Voltage
+                        Engineer </div>
+                </div>
+            </section>
+
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+    <script src="scrript.js"></script>
+</body>
+
+</html>

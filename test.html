@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <title>Document</title>
+</head>
+
+<body class="h-screen" x-data="portfolioApp">
+  <div class="flex flex-col md:flex-row gap-10 h-full mx-auto rounded-lg md:p-10 shadow-md bg-slate-800 scroll-smooth">
+
+    <!-- SIDEBAR (hidden on mobile, visible on desktop) -->
+    <div class="w-full md:flex-[1] rounded-md side shadow-md hidden md:flex ">
+      <div>
+        <h1 class="text-center py-10 text-4xl font-bold">My Portfolio</h1>
+        <img src="profile pic with suit.png" alt="Photo" class="w-2/5 h-auto mx-auto rounded-full border-1 shadow-lg">
+        <h2 class="text-center pt-5 text-2xl font-bold">SURYA PRAKASH</h2>
+        <!-- <div class="flex mx-auto gap-4 m-4 justify-center">
+          <button
+            class="px-5 py-1 bg-blue-500 rounded-md shadow-md hover:bg-blue-600 transition text-white">
+            <a href="#">Resume</a>
+          </button>
+          <button class="px-5 py-1 bg-blue-500 rounded-md shadow-md hover:bg-blue-600 transition text-white">
+            <a href="#projects">Projects</a>
+          </button>
+        </div> -->
+
+        <h3 class="text-md text-gray-600 text-center p-3">Electrical Engineering Student | Web Developer | IoT
+          Developer | High Voltage Engineer.</h3>
+
+        <div class="flex justify-center flex-col items-center mx-auto gap-4">
+
+          <div class="flex items-center">
+            <i class="fas fa-map-marker-alt text-amber-500 mr-3"></i>
+            <span class="text-gray-700"><strong>Location:</strong> Gorakhpur, Uttar Pradesh</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-envelope text-amber-500 mr-3"></i>
+            <span class="text-gray-700"><strong>Email:</strong> suryaa77069@gmail.com</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-phone text-amber-500 mr-3"></i>
+            <span class="text-gray-700"><strong>Phone:</strong> +91 7706925634</span>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-8">
+          <button class="px-5 py-2 bg-amber-600 rounded-lg shadow hover:bg-amber-700 transition"><a
+              href="#contact">Connect To
+              Me</a></button>
+
+        </div>
+        <hr class="w-25 mx-auto mt-8">
+        <div id="socials" class="flex justify-center gap-8 my-8 text-gray-600"></div>
+      </div>
+    </div>
+
+    <!-- 🔹 Modal Popup for Profile (mobile trigger) -->
+    <div x-show="openProfile" x-cloak
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4" x-transition>
+      <div @click.away="openProfile=false"
+        class="side p-6 rounded-2xl shadow-xl max-w-lg w-full text-center transform transition-all relative">
+        <h1 class="text-center py-10 text-4xl font-bold">My Profile</h1>
+
+        <!-- Fixed Close Button -->
+        <button @click="openProfile=false" class="absolute top-4 right-4  text-3xl hover:text-red-500 transition">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <img src="profile pic with suit.png" alt="Photo" class="w-1/2 h-auto mx-auto rounded-full border-1 shadow-lg">
+        <h2 class="text-center pt-5 text-2xl font-bold">SURYA PRAKASH</h2>
+        <h3 class="text-md text-gray-600 text-center p-4">Electrical Engineering Student | Web Developer | IoT Developer
+          |
+          High Voltage Engineer.</h3>
+
+        <div class="flex justify-center flex-col items-center mx-auto gap-4">
+
+          <div class="flex items-center">
+            <i class="fas fa-map-marker-alt text-amber-500 mr-3"></i>
+            <span class="text-gray-700"><strong>Location:</strong> Gorakhpur, Uttar Pradesh</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-envelope text-amber-500 mr-3"></i>
+            <span class="text-gray-700"><strong>Email:</strong> suryaa77069@gmail.com</span>
+          </div>
+          <div class="flex items-center">
+            <i class="fas fa-phone text-amber-500 mr-3"></i>
+            <span class="text-gray-700"><strong>Phone:</strong> +91 7706925634</span>
+          </div>
+        </div>
+        <div class="flex justify-center mt-8">
+          <button class="px-5 py-2 bg-amber-600 rounded-lg shadow hover:bg-amber-700 transition text-white">
+            <a href="#contact">Connect To Me</a>
+          </button>
+        </div>
+        <div id="social" class="flex justify-center gap-8 my-8 text-gray-600 text-xl"></div>
+
+        <!-- Fixed Back Button -->
+        <button @click="openProfile=false"
+          class="px-4 py-2 bg-blue-600 rounded-lg hover:bg-blue-700 transition text-white">
+          Back
+        </button>
+      </div>
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="w-full md:flex-[3] rounded-md main shadow-md scroll-smooth scroll-pt-10">
+
+      <!-- NAVBAR -->
+      <nav class="sticky top-0 left-0 w-full bg-white/0 backdrop-blur-md shadow-lg z-50">
+        <div class="max-w-6xl mx-auto h-13 flex items-center justify-between px-5 md:px-8">
+          <a href="#" class="text-xl font-bold">
+            <img src="my logo new.png" alt="Logo" class="max-w-18 md:max-w-20">
+          </a>
+
+          <!-- Desktop Links -->
+          <ul class="hidden md:flex space-x-10 text-gray-800 font-medium">
+            <li><a href="#about" class="hover:text-blue-500 transition duration-200">About me</a></li>
+            <li><a href="#skills" class="hover:text-blue-500 transition duration-200">Skills</a></li>
+            <li><a href="#projects" class="hover:text-blue-500 transition duration-200">Projects</a></li>
+            <li><a href="#experience" class="hover:text-blue-500 transition duration-200">Experience</a></li>
+            <li><a href="#contact" class="hover:text-blue-500 transition duration-200">Contact</a></li>
+          </ul>
+
+          <!-- Mobile button -->
+          <button @click="openMenu = !openMenu" class="md:hidden focus:outline-none z-50 text-gray-700">
+            <i x-show="!openMenu" class="fas fa-bars text-2xl"></i>
+            <i x-show="openMenu" x-cloak class="fas fa-times text-2xl"></i>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Mobile Overlay Menu -->
+      <div x-show="openMenu" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 flex items-center justify-center"
+        x-transition>
+        <ul class="space-y-8 text-2xl font-semibold text-white text-center" @click="openMenu=false">
+          <li><button @click="openProfile = true" class="hover:text-blue-400">My Profile</button></li>
+          <li><a href="#about" class="hover:text-blue-400">About me</a></li>
+          <li><a href="#skills" class="hover:text-blue-400">Skills</a></li>
+          <li><a href="#projects" class="hover:text-blue-400">Projects</a></li>
+          <li><a href="#experience" class="hover:text-blue-400">Experience</a></li>
+          <li><a href="#contact" class="hover:text-blue-400">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <section id="about" class="py-10 px-4 md:px-8 mt-0">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
+          <!-- About Content -->
+          <div class="md:w-1/2 space-y-6 order-2 md:order-1">
+            <h2 class="text-5xl md:text-6xl font-bold text-gray-800">Hello!</h2>
+            <!-- <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-4">THIS IS SURYA</h3> -->
+
+            <div class="bg-white p-6 rounded-2xl shadow-lg border-l-4 border-amber-500">
+              <p class="text-gray-700 text-md leading-relaxed">
+                I'm an Electrical Engineering student with a passion for bridging the gap between hardware
+                and software technologies. My journey combines traditional engineering principles with
+                cutting-edge web development and IoT solutions.
+              </p>
+            </div>
+            <div class="grid grid-cols-3 gap-6">
+              <div class="p-5 rounded-xl bg-yellow-100 hover:bg-yellow-200 transition shadow-md text-center">
+                <i class="fas fa-microchip text-3xl text-yellow-600"></i>
+                <h4 class="mt-3 font-semibold text-gray-800">IoT & Embedded</h4>
+                <p class="text-sm text-gray-600 mt-1">Hands-on with Arduino, sensors, and automation.</p>
+              </div>
+              <div class="p-5 rounded-xl bg-blue-100 hover:bg-blue-200 transition shadow-md text-center">
+                <i class="fas fa-code text-3xl text-blue-600"></i>
+                <h4 class="mt-3 font-semibold text-gray-800">Web Development</h4>
+                <p class="text-sm text-gray-600 mt-1">Building responsive and interactive web apps.</p>
+              </div>
+              <div class="p-5 rounded-xl bg-green-100 hover:bg-green-200 transition shadow-md text-center">
+                <i class="fas fa-bolt text-3xl text-green-600"></i>
+                <h4 class="mt-3 font-semibold text-gray-800">Power Systems</h4>
+                <p class="text-sm text-gray-600 mt-1">Exploring advanced electrical power engineering.</p>
+              </div>
+            </div>
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-3 gap-6 text-center mt-6">
+              <div>
+                <h4 class="text-3xl font-bold text-gray-800">5+</h4>
+                <p class="text-gray-600">Projects</p>
+              </div>
+              <div>
+                <h4 class="text-3xl font-bold text-gray-800">3+</h4>
+                <p class="text-gray-600">Years Experience</p>
+              </div>
+              <div>
+                <h4 class="text-3xl font-bold text-gray-800">10+</h4>
+                <p class="text-gray-600">Certifications</p>
+              </div>
+            </div>
+
+            <!-- Simple Resume button -->
+            <div class="flex justify-center mt-2"><button id="resumeBtn"
+                class=" px-5 py-2 rounded-lg bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition"><i
+                  class="fa-solid fa-file-export"></i>
+                View Resume
+              </button></div>
+
+            <!-- Modal overlay (hidden by default) -->
+            <div id="resumeOverlay" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <!-- Modal box -->
+              <div id="resumeBox"
+                class="bg-white w-11/12 md:w-3/4 lg:w-2/3 rounded-lg shadow-lg overflow-hidden transform"
+                style="transition: transform 320ms cubic-bezier(.16,.84,.44,1), opacity 320ms ease; will-change: transform, opacity;">
+                <!-- Header -->
+                <div class="flex items-center justify-between p-3 border-b">
+                  <h3 class="text-lg font-semibold">My Resume</h3>
+                  <button id="closeBtn" class="text-2xl leading-none px-2" aria-label="Close">&times;</button>
+                </div>
+
+                <!-- Wrapper -->
+                <div class="w-full max-w-3xl mx-auto">
+                  <!-- Keep A4 ratio on small screens -->
+                  <div class="aspect-[210/297] md:aspect-auto md:h-[80vh] overflow-hidden border rounded-md">
+                    <iframe src="Resume_Suya (1).pdf" class="w-full h-full"></iframe>
+                  </div>
+                </div>
+
+
+
+                <!-- Footer -->
+                <div class="p-3 border-t text-right">
+                  <a href="Resume_Suya (1).pdf" download
+                    class="inline-block px-4 py-2 rounded bg-green-600 text-white font-medium hover:bg-green-700 transition">
+                    Download
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+
+
+
+          <!-- Profile (desktop right, mobile top) -->
+          <div class="order-1 md:order-2 items-center perspective relative min-h-80vh md:min-h-full flex ">
+            <!-- Portrait (first on mobile, right on desktop) -->
+            <div class="relative flex justify-center order-1 md:order-2">
+              <div class="relative">
+                <!-- Red border box -->
+                <div class="absolute  -top-4 -left-4 w-full h-full border-4 border-red-600 flex overflow-hidden ">
+                  <h1 class="-z-1 left-0" style="font-size: 12rem ; rotate: 270deg;">SURYA</h1>
+                </div>
+
+                <div class="z-1"><!-- Image -->
+                  <img src="Gemini_Generated_Image_nks6atnks6atnks6-Photoroom.png" alt="Surya Prakash"
+                    class="w-115 hover:grayscale-0 transition rounded-lg shadow-xl" />
+                </div>
+
+                <!-- Overlay slogan -->
+                <div
+                  class="absolute bottom-4 -left-4 bg-red-600 text-white px-4 py-6 font-bold text-lg tracking-widest">
+                  <br>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <hr class="mt-6">
+        <div class="mt-6" id="skills" x-data="skillsApp">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Skills</h3>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <template x-for="(skill, index) in skills" :key="index">
+              <div
+                class="bg-white p-6 rounded-xl shadow-lg text-center group transition-all duration-700 hover:-translate-y-2">
+
+                <!-- Icon -->
+                <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 transition-colors"
+                  :class="skill.bg">
+                  <i :class="skill.icon" class="text-2xl" :class="skill.color"></i>
+                </div>
+
+                <!-- Title -->
+                <h4 class="font-semibold text-gray-800 mb-2" x-text="skill.name"></h4>
+                <p class="text-gray-600 text-sm" x-text="skill.desc"></p>
+
+                <!-- Progress (hidden until hover) -->
+                <div class="overflow-hidden h-0 group-hover:h-12 transition-all duration-700 ease-out mt-4">
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      class="h-2 rounded-full w-0 group-hover:w-[var(--progress)] transition-all duration-1000 ease-out"
+                      :class="skill.barColor" :style="`--progress:${skill.level}%`"></div>
+                  </div>
+                  <p
+                    class="text-xs text-gray-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+                    <span x-text="skill.level"></span>%
+                  </p>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+
+
+      </section>
+
+      <section id="education" class="py-10 px-8">
+        <hr class="pb-8">
+        <div class="max-w-3xl">
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-800 mb-8">Education</h3>
+          <!-- Timeline container -->
+          <div id="timeline" class="relative border-l-4 border-blue-500 ml-4 space-y-10"></div>
+        </div>
+      </section>
+
+      <section id="projects" class="py-4">
+        <div class="max-w-6xl mx-auto px-8">
+          <hr>
+          <h3 class="text-3xl font-bold text-gray-800 my-8">My Projects</h3>
+          <div class="grid md:grid-cols-3 gap-8">
+            <template x-for="(project, index) in projects" :key="index">
+              <div class="bg-white  rounded-2xl shadow-lg hover:shadow-xl transition duration-300 hover:-translate-y-2">
+                <img :src="project.img" :alt="project.title" class="rounded-xl  w-full h-50 object-cover">
+                <div class="p-4">
+                  <h3 class="text-xl font-semibold text-gray-800" x-text="project.title"></h3>
+                  <p class="text-gray-600 text-sm mt-2" x-text="project.desc"></p>
+                  <div class="mt-4 flex gap-4">
+                    <a :href="project.code" class="text-blue-600 hover:underline">View Code</a>
+                    <a :href="project.demo" class="text-amber-600 hover:underline">Live Demo</a>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="p-8">
+        <div class="max-w-6xl mx-auto">
+          <hr>
+          <h3 class="text-2xl md:text-3xl font-bold text-gray-800 my-8 ">Experience</h3>
+          <!-- Dynamic Timeline -->
+          <div id="experience-timeline" class="relative border-l-4 border-blue-500 space-y-8"></div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-4 bg-gray-900 text-white">
+        <h2 class="text-3xl font-bold pb-2 ps-8">Get in Touch </h2>
+        <div class="w-24 border-1 ms-8"> </div>
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 p-8 mx-8 shadow-lg">
+
+          <!-- LEFT SIDE: Contact Info (Dynamic) -->
+          <div id="contact-info" class="space-y-4 order-2 md:order-1"></div>
+          <!-- RIGHT SIDE: Contact Form -->
+          <div class="bg-gray-800 rounded-lg shadow-lg p-8 md:order-2">
+            <form id="contact-form" class="space-y-6">
+              <div>
+                <label class="block text-sm font-medium">Name</label>
+                <input type="text" name="from_name" required
+                  class="mt-1 block w-full rounded-lg bg-gray-700 text-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium">Email</label>
+                <input type="email" name="from_email" required
+                  class="mt-1 block w-full rounded-lg bg-gray-700 text-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+              </div>
+
+              <div>
+                <label class="block text-sm font-medium">Message</label>
+                <textarea name="message" rows="4" required
+                  class="mt-1 block w-full rounded-lg bg-gray-700 text-white px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+              </div>
+
+              <button type="submit"
+                class="w-full py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 font-semibold transition">
+                Send Message
+              </button>
+            </form>
+
+            <!-- Success/Error Messages -->
+            <p id="response-msg" class="mt-4 text-center text-sm"></p>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+    </div>
+  </div>
+  <!-- EmailJS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="script.js"></script>
+  <script src="scrript.js"></script>
+</body>
+
+</html>

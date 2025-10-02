@@ -1,0 +1,194 @@
+body {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* background-color: ; */
+}
+
+.side {
+    background-color: #fef5db;
+}
+
+.main {
+    background-color: #fef5db;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.hero {
+    background-image: url('latar belakang Internet Teknologi Rantaian Blok Syarikat Syarikat Internet Imej Kertas Dinding Untuk Muat Turun Percuma - Pngtree.jpeg');
+}
+
+.perspective {
+    perspective: 1000px;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+
+/* Prevent body scroll when menu is open */
+body.menu-open {
+    overflow: hidden;
+}
+
+/* Smooth transitions */
+.mobile-menu-transition {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hide scrollbar but maintain functionality */
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+
+
+/* Custom animations for About section */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Gradient text effect */
+.gradient-text {
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Enhanced hover effects */
+.skill-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* Custom CSS to be used with the Tailwind structure */
+.is-loading .actual-content,
+.is-loading .actual-content-only {
+    /* Hide all actual text content when the parent has the 'is-loading' class */
+    display: none;
+}
+
+.is-loading .skeleton-text {
+    /* Show the gray blocks when the parent has the 'is-loading' class */
+    display: block;
+    /* Optional: Ensure list bullets are hidden during loading */
+    list-style: none;
+}
+
+/* When loading is finished (i.e., when .is-loading is removed) */
+.actual-content,
+.actual-content-only {
+    /* Show actual text */
+    display: inline;
+    /* Or block, as appropriate for the element */
+}
+
+.skeleton-text {
+    /* Hide skeleton blocks */
+    display: none;
+}
+
+
+/* --- Custom CSS for Animation Keyframes --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Abstract Background Animation (A simple, pure CSS vector look) */
+.background-animation-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Create a grid with repeating dots/lines */
+    background-image:
+        radial-gradient(rgba(100, 100, 200, 0.1) 1px, transparent 1px),
+        radial-gradient(rgba(100, 100, 200, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+    /* Offset the second grid */
+    animation: pan 60s linear infinite;
+    /* Slow, continuous movement */
+}
+
+@keyframes pan {
+    0% {
+        background-position: 0 0, 25px 25px;
+    }
+
+    100% {
+        background-position: 50px 50px, 75px 75px;
+    }
+}
+
+.vertical-text {
+    color: transparent;
+    background: repeating-linear-gradient(90deg,
+            rgba(0, 0, 0, 0.7) 0 30px,
+            /* dark strip */
+            transparent 8px 16px
+            /* gap */
+        );
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25);
+    /* transform: perspective(800px) rotateY(15deg); 3D tilt */
+    /* writing-mode: vertical-rl; */
+    /* text-orientation: mixed;     */
+    /* font-weight: bold; */
+
+}
