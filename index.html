@@ -62,10 +62,10 @@
 
     <!-- 🔹 Modal Popup for Profile (mobile trigger) -->
     <div x-show="openProfile" x-cloak
-      class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4" x-transition>
+      class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-3" x-transition>
       <div @click.away="openProfile=false"
-        class="side p-6 rounded-2xl shadow-xl max-w-lg w-full text-center transform transition-all relative">
-        <h1 class="text-center py-10 text-4xl font-bold">My Profile</h1>
+        class="side p-6 rounded-2xl shadow-xl max-w-lg w-full text-center transform transition-all relative h-[80vh] ">
+        <h1 class="text-center py-4 text-3xl font-bold">My Profile</h1>
 
         <!-- Fixed Close Button -->
         <button @click="openProfile=false" class="absolute top-4 right-4  text-3xl hover:text-red-500 transition">
@@ -74,11 +74,11 @@
 
         <img src="profile pic with suit.png" alt="Photo" class="w-1/2 h-auto mx-auto rounded-full border-1 shadow-lg">
         <h2 class="text-center pt-5 text-2xl font-bold">SURYA PRAKASH</h2>
-        <h3 class="text-md text-gray-600 text-center p-4">Electrical Engineering Student | Web Developer | IoT Developer
+        <h3 class="text-md text-gray-600 text-center p-3">Electrical Engineering Student | Web Developer | IoT Developer
           |
           High Voltage Engineer.</h3>
 
-        <div class="flex justify-center flex-col items-center mx-auto gap-4">
+        <div class="flex justify-center flex-col items-center mx-auto gap-4 pt-1">
 
           <div class="flex items-center">
             <i class="fas fa-map-marker-alt text-amber-500 mr-3"></i>
@@ -115,7 +115,7 @@
       <!-- NAVBAR -->
       <nav class="sticky top-0 left-0 w-full bg-white/0 backdrop-blur-md shadow-lg z-50">
         <div class="max-w-6xl mx-auto h-13 flex items-center justify-between px-5 md:px-8">
-          <a href="#" class="text-xl font-bold">
+          <a href="index.html" class="text-xl font-bold">
             <img src="my logo new.png" alt="Logo" class="max-w-18 md:max-w-20">
           </a>
 
